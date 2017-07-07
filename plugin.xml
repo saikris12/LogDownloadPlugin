@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="LogTool.commands.category">
+      </category>
+      <command
+            name="Download Server Logs"
+            categoryId="LogTool.commands.category"
+            id="LogTool.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="LogTool.commands.sampleCommand"
+            class="logtool.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="LogTool.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Log Downloader"
+               mnemonic="M"
+               id="LogTool.menus.sampleMenu">
+            <command
+                  commandId="LogTool.commands.sampleCommand"
+                  mnemonic="S"
+                  id="LogTool.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="LogTool.toolbars.sampleToolbar">
+            <command
+                  commandId="LogTool.commands.sampleCommand"
+                  icon="icons/log.jpg"
+                  tooltip="Log Downloader"
+                  id="LogTool.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
